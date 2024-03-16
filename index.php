@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BasketXpert</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="favicon.jpeg" type="image/x-icon">
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
@@ -36,7 +37,7 @@
             >
           </li>
           <li class="navbar__btn">
-            <a href="#sign-up" class="button" id="signup">Sign Up</a>
+            <a href="loginsystem/register_form.php" class="button" id="signup">Sign In</a>
           </li>
         </ul>
       </div>
@@ -47,7 +48,7 @@
       <div class="hero__container">
         <h1 class="hero__heading">Welcome to <span>BasketXpert</span></h1>
         <p class="hero__description">The Real Market basket Analysis</p>
-        <button class="main__btn"><a href="#">Explore</a></button>
+        <button class="main__btn"><a href="loginsystem/register_form.php">Explore</a></button>
       </div>
     </div>
 
@@ -74,12 +75,12 @@
         <div class="services__card">
           <h2>Market Basket Analysis</h2>
           <p>Absolutely Free</p>
-          <div class="services__btn"><button>Get Started</button></div>
+          <div class="services__btn"><button>Availabel</button></div>
         </div>
         <div class="services__card">
             <h2>Application development(Web, Mobile, Desktop, Saas..) </h2>
             <p>Charges Apply</p>
-            <div class="services__btn"><button>Get Started</button></div>
+            <div class="services__btn"><button>Availabel</button></div>
           </div>
         <div class="services__card">
           <h2>Customer Segmentation </h2>
@@ -100,9 +101,10 @@
       <div class="main__container">
         <div class="main__content">
           <h1>Join Our Team</h1>
-          <h2>Sign Up Today</h2>
-          <p>See what makes us different</p>
-          <button class="main__btn"><a href="#">Sign Up</a></button>
+          <h2>Want to work at BasketXpert?</h2>
+          <p>mail your resume below</p>
+          
+          <button class="main__btn"><a href="mailto:sanjaydh006@gmail.com">Email</a></button>
         </div>
         <div class="main__img--container">
           <div class="main__img--card" id="card-2">
@@ -118,12 +120,12 @@
         <div class="footer__link--wrapper">
           <div class="footer__link--items">
             <h2>About Us</h2>
-            <a href="/sign__up">How it works</a> <a href="/">Testimonials</a>
-            <a href="/">Careers</a> <a href="/">Terms of Service</a>
+            <a href="https://drive.google.com/file/d/13bEqHEHlpzV4zh5ylZ0tLAJx1QH_If_f/view">How it works</a> <a href="https://www.wonder.legal/in/modele/privacy-policy-website-mobile-application-in">Terms of Service</a>
+            <a href="mailto:sanjaydh006@gmail.com">Careers</a> <a href="https://www.inventuslaw.com/introduction-to-data-privacy-laws-in-india/">Privacy</a>
           </div>
           <div class="footer__link--items">
             <h2>Contact Us</h2>
-            <a href="/">Contact</a> <a href="/">Support</a>
+            <a href="https://www.sanjaydh.com/">Contact</a> <a href="https://www.bhimupi.org.in/">Support</a>
             <!-- <a href="/">Destinations</a> -->
           </div>
         </div>
@@ -135,8 +137,8 @@
           </div> -->
           <div class="footer__link--items">
             <h2>Social Media</h2>
-            <a href="/">Instagram</a> <a href="/">Facebook</a>
-            <a href="/">Youtube</a> <a href="/">Twitter</a>
+            <a href="https://www.instagram.com/its.sanjay005/">Instagram</a> <a href="https://www.facebook.com/profile.php?id=100008848428273">Facebook</a>
+            <a href="https://github.com/Real-Sanjay/BasketXpert">GitHub</a> <a href="https://twitter.com/RealSanjay007">Twitter</a>
           </div>
         </div>
       </div>
@@ -147,19 +149,19 @@
           </div>
           <p class="website__rights">© BasketXpert 2024. All rights reserved</p>
           <div class="social__icons">
-            <a href="/" class="social__icon--link" target="_blank"
+            <a href="https://www.facebook.com/profile.php?id=100008848428273" class="social__icon--link" target="_blank"
               ><i class="fab fa-facebook"></i
             ></a>
-            <a href="/" class="social__icon--link"
+            <a href="https://www.instagram.com/its.sanjay005/" class="social__icon--link"
               ><i class="fab fa-instagram"></i
             ></a>
-            <a href="/" class="social__icon--link"
+            <a href="https://youtube.com" class="social__icon--link"
               ><i class="fab fa-youtube"></i
             ></a>
-            <a href="/" class="social__icon--link"
+            <a href="https://www.linkedin.com/in/its-sanjay/" class="social__icon--link"
               ><i class="fab fa-linkedin"></i
             ></a>
-            <a href="/" class="social__icon--link"
+            <a href="https://twitter.com/RealSanjay007" class="social__icon--link"
               ><i class="fab fa-twitter"></i
             ></a>
           </div>
