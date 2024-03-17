@@ -1,6 +1,10 @@
 <?php
 @include 'config.php';
 
+// Initialize error and success messages
+$errors = [];
+$success_message = '';
+
 if (isset($_POST['submit'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -9,7 +13,7 @@ if (isset($_POST['submit'])) {
 
     // Validate the password
     if (!validate_password($password)) {
-        $error[] = 'Password must be at least 8 characters long.';
+        $errors[] = 'Password must be at least 8 characters long.';
     } else {
         // Hash the password securely
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -19,44 +23,25 @@ if (isset($_POST['submit'])) {
         $result = mysqli_query($conn, $select);
 
         if (mysqli_num_rows($result) > 0) {
-            $error[] = 'User already exists!';
-        } 
-        elseif ($password !== $confirm_password) {
-            $error[] = 'Password and confirm password do not match.';
-        }
-        else {
-            // Insert the user into the database with password sent through email
-// $insert = "INSERT INTO user_form (name, email, password, reset_token, reset_token_expires) VALUES (?, ?, ?, NULL, NULL)";
-// $stmt = mysqli_prepare($conn, $insert);
-// mysqli_stmt_bind_param($stmt, 'sss', $name, $email, $hashed_password);
-
-// if (mysqli_stmt_execute($stmt)) {
-//     header('location: login_form.php');
-// } else {
-//     $error[] = 'Error inserting user into the database.';
-// }
-
-// mysqli_stmt_close($stmt);
-
+            $errors[] = 'User already exists!';
+        } elseif ($password !== $confirm_password) {
+            $errors[] = 'Password and confirm password do not match.';
+        } else {
             // Insert the user into the database
             $insert = "INSERT INTO user_form (name, email, password) VALUES (?, ?, ?)";
             $stmt = mysqli_prepare($conn, $insert);
             mysqli_stmt_bind_param($stmt, 'sss', $name, $email, $hashed_password);
 
             if (mysqli_stmt_execute($stmt)) {
-                header('location: login_form.php');
-            }
-            
-            if (!$result) {
-                die('Error: ' . mysqli_error($conn));
-            }
-            else {
-                $error[] = 'Error inserting user into the database.';
+                $success_message = 'Registration successful! Redirecting to login page...';
+                header('refresh:2;url=login_form.php'); // Redirect after 2 seconds
+                // exit;
+            } else {
+                $errors[] = 'Error inserting user into the database.';
             }
 
             mysqli_stmt_close($stmt);
         }
-
     }
 }
 
@@ -78,29 +63,27 @@ function validate_password($password) {
    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<nav class="navbar">
+   <nav class="navbar">
       <div class="navbar__container">
         <a href="#home" id="navbar__logo">BasketXpert</a>
         </div>
     </nav>
-<div class="form-container">
-
-   <form action="" method="post">
-      <h3>Register</h3>
-      <?php
-      if(isset($error)){
-         foreach($error as $error){
-            echo '<span class="error-msg">'.$error.'</span>';
-         };
-      };
-      ?>
-      <input type="text" name="name" required placeholder="enter your name">
-      <input type="email" name="email" required placeholder="enter your email">
-      <input type="password" name="password" required placeholder="enter your password">
-      <input type="password" name="cpassword" required placeholder="confirm your password">
-      <input type="submit" name="submit" value="register now" class="form-btn">
-      <p>Already have an account? <a href="login_form.php">login now</a></p>
-   </form>
-</div>
+    <div class="form-container">
+        <form action="" method="post">
+            <h3>Register</h3>
+            <?php foreach($errors as $error): ?>
+                <span class="error-msg"><?php echo $error; ?></span>
+            <?php endforeach; ?>
+            <?php if(!empty($success_message)): ?>
+                <p><?php echo $success_message; ?></p>
+            <?php endif; ?>
+            <input type="text" name="name" required placeholder="enter your name">
+            <input type="email" name="email" required placeholder="enter your email">
+            <input type="password" name="password" required placeholder="enter your password">
+            <input type="password" name="cpassword" required placeholder="confirm your password">
+            <input type="submit" name="submit" value="register now" class="form-btn">
+            <p>Already have an account? <a href="login_form.php">login now</a></p>
+        </form>
+    </div>
 </body>
 </html>

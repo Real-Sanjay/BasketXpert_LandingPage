@@ -75,12 +75,12 @@
         <div class="services__card">
           <h2>Market Basket Analysis</h2>
           <p>Absolutely Free</p>
-          <div class="services__btn"><button>Availabel</button></div>
+          <div class="services__btn"><button>Available</button></div>
         </div>
         <div class="services__card">
             <h2>Application development(Web, Mobile, Desktop, Saas..) </h2>
             <p>Charges Apply</p>
-            <div class="services__btn"><button>Availabel</button></div>
+            <div class="services__btn"><button>Available</button></div>
           </div>
         <div class="services__card">
           <h2>Customer Segmentation </h2>
